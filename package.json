@@ -1,0 +1,10 @@
+{
+  "name": "n-queens",
+  "version": "1.0.0",
+  "description": "n-queens",
+  "scripts": {
+    "start": "npx live-server"
+  },
+  "author": "Hack Reactor <curriculum.team@hackreactor.com>",
+  "license": "UNLICENSED"
+}
