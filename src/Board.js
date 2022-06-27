@@ -85,6 +85,8 @@
       } else {
         if (row.slice(row.indexOf(1) + 1).indexOf(1) !== -1) {
           return true;
+        } else {
+          return false;
         }
       }
     },
@@ -118,6 +120,8 @@
       } else {
         if (col.slice(col.indexOf(1) + 1).indexOf(1) !== -1) {
           return true;
+        } else {
+          return false;
         }
       }
     },
@@ -139,12 +143,35 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      var rowIndex = arguments[1] ? arguments[1] : 0;
+      var majorDiagonal = [];
+      var n = this.get('n');
+      for (var i = rowIndex; i < n; i++) {
+        majorDiagonal.push(this.get(i)[majorDiagonalColumnIndexAtFirstRow]);
+        majorDiagonalColumnIndexAtFirstRow++;
+      }
+
+      if (majorDiagonal.indexOf(1) === -1) {
+        return false;
+      } else {
+        if (majorDiagonal.slice(majorDiagonal.indexOf(1) + 1).indexOf(1) !== -1) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     },
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      return false; // fixme
+      var hasDiagonalConflict = false;
+      var n = this.get('n');
+      for (var rowIndex = 0; rowIndex < n; rowIndex++) {
+        for (var colIndex = 0; colIndex < n; colIndex++) {
+          hasDiagonalConflict = hasDiagonalConflict || this.hasMajorDiagonalConflictAt(n-1-colIndex, rowIndex);
+        }
+      }
+      return hasDiagonalConflict;
     },
 
 
