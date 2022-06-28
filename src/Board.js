@@ -85,10 +85,9 @@
       } else {
         if (row.slice(row.indexOf(1) + 1).indexOf(1) !== -1) {
           return true;
-        } else {
-          return false;
         }
       }
+      return false;
     },
 
     // test if any rows on this board contain conflicts
@@ -120,10 +119,9 @@
       } else {
         if (col.slice(col.indexOf(1) + 1).indexOf(1) !== -1) {
           return true;
-        } else {
-          return false;
         }
       }
+      return false;
     },
 
     // test if any columns on this board contain conflicts
@@ -156,10 +154,9 @@
       } else {
         if (majorDiagonal.slice(majorDiagonal.indexOf(1) + 1).indexOf(1) !== -1) {
           return true;
-        } else {
-          return false;
         }
       }
+      return false;
     },
 
     // test if any major diagonals on this board contain conflicts
@@ -194,10 +191,9 @@
       } else {
         if (minorDiagonal.slice(minorDiagonal.indexOf(1) + 1).indexOf(1) !== -1) {
           return true;
-        } else {
-          return false;
         }
       }
+      return false;
     },
 
     // test if any minor diagonals on this board contain conflicts
