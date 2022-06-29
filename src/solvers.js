@@ -116,7 +116,7 @@ var findNQueensSolutionSet = function(n) {
 
     for (var colIndex = 0; colIndex < n; colIndex++) {
       board.togglePiece(rowIndex, colIndex);
-      if (!board.hasColConflictAt(colIndex) && !board.hasRowConflictAt(rowIndex) && !board.hasAnyMajorDiagonalConflicts() && !board.hasAnyMinorDiagonalConflicts()) {
+      if (!board.hasAnyQueenConflictsOn(rowIndex, colIndex)) {
         findNQueensSolutions(rowIndex + 1);
         board.togglePiece(rowIndex, colIndex);
       } else {
